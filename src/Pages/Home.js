@@ -98,8 +98,8 @@ export default function Home() {
           <div className="app-contaner">
           <Link to="/bookmark" className="link" >BookMark</Link>
             <h1>Pokemon Evolution</h1>
-            {status === STATUSES.ERROR ? <h4 style={{ color: "red" }}>no exact matches found</h4> : null}
             <input type="text" className='input' onChange={(e) => { setName(e.target.value) }} value={name} /> 
+            {status === STATUSES.ERROR ? <span style={{color:"red"}}>no exact match found</span> : null}
             <button className='search' onClick={(e)=>{handleSearch(e)}}>Search</button>
             <div>
            <select  className='filter'  onChange={handleChange}>
