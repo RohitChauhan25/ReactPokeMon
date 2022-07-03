@@ -10,8 +10,8 @@ export default function Home() {
   const [allPokemons, setAllPokemons] = useState([])
   const [loadMore, setLoadMore] = useState('https://pokeapi.co/api/v2/pokemon?limit=10')
   const [name, setName] = useState("")
-  const [searchPok, setSearchPok] = useState([])
-  const [openLoader, setopenLoader] = useState(true)
+  // const [searchPok, setSearchPok] = useState([])
+  // const [openLoader, setopenLoader] = useState(true)
   const [error, seterror] = useState(false)
   const dispatch = useDispatch()
   const { data, ability, habitat, location, searchData, group, status } = useSelector(state => state.pokeman)
@@ -25,7 +25,7 @@ export default function Home() {
           axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemon.name}`)
             .then((res) => {
               setAllPokemons(currentList => [...currentList, res.data])
-              setopenLoader(false)
+              // setopenLoader(false)
             }).catch((err) => {
               console.log(err)
             }
@@ -34,7 +34,7 @@ export default function Home() {
       }
       createPokemonObject(data.results)
     } catch (error) {
-      setopenLoader(false)
+      // setopenLoader(false)
     }
   }
   useEffect(() => {

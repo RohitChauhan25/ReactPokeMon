@@ -55,16 +55,13 @@ export default pokemonSlice.reducer;
 export function getPokemon() {
     return async function getchPokemanThunk(dispatch, getState) {
         dispatch(setStatus(STATUSES.LOADING));
-
       const {pokeman }= getState()
                 axios.get(`https://pokeapi.co/api/v2/pokemon/${pokeman.search}`)
                   .then((res) => {
                     dispatch(setPokemandata(res.data));
-                    console.log(res.data)
                     dispatch(setStatus(STATUSES.IDLE));
                   }).catch((err) => {
                     dispatch(setStatus(STATUSES.ERROR));
-                    console.log(err)
                   })
             }
 }
@@ -74,11 +71,9 @@ export function getAblity() {
               axios.get(`https://pokeapi.co/api/v2/ability`)
                 .then((res) => {
                   dispatch(setAbility(res.data.results));
-                  console.log(res.data)
                   dispatch(setStatus(STATUSES.IDLE));
                 }).catch((err) => {
                   dispatch(setStatus(STATUSES.ERROR));
-                  console.log(err)
                 })
           }
 }
@@ -89,7 +84,6 @@ export function gethabitat() {
               axios.get(`https://pokeapi.co/api/v2/pokemon-habitat`)
                 .then((res) => {
                   dispatch(sethabitat(res.data.results));
-                  console.log(res.data)
                   dispatch(setStatus(STATUSES.IDLE));
                 }).catch((err) => {
                   dispatch(setStatus(STATUSES.ERROR));
@@ -107,7 +101,6 @@ export function getGroup() {
                   dispatch(setStatus(STATUSES.IDLE));
                 }).catch((err) => {
                   dispatch(setStatus(STATUSES.ERROR));
-                  console.log(err)
                 })
           }
 }
@@ -118,11 +111,9 @@ export function getLocation() {
               axios.get(`https://pokeapi.co/api/v2/location`)
                 .then((res) => {
                   dispatch(setLocation(res.data.results));
-                  console.log(res.data)
                   dispatch(setStatus(STATUSES.IDLE));
                 }).catch((err) => {
                   dispatch(setStatus(STATUSES.ERROR));
-                  console.log(err)
                 })
           }
 }
@@ -149,7 +140,6 @@ export function getSearchByAbility() {
                   })
                 }).catch((err) => {
                   dispatch(setStatus(STATUSES.ERROR));
-                  console.log(err)
                 })
           }
 }
